@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title></title>
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+
+  <!--     Fonts and icons     -->
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
+
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="assets/css/demo.css" rel="stylesheet" />
+</head>
+
+<body>
+<div class="image-container set-full-height" style="background-image: url('../assets/img/login-image.jpg')">
+  <!--   Creative Tim Branding   -->
+
+  <!--   Big container   -->
+  <div class="container wrapper">
+    <div class="row">
+      <div class="col-sm-8 col-sm-9 mr-auto ml-auto">
+
+        <!--      Wizard container        -->
+        <div class="wizard-container">
+
+          <div class="card wizard-card" data-color="orange" id="wizardProfile">
+            <form class="new-form">
+              <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
+
+              <div class="wizard-header ">
+                <h3 class="title">
+                  <b>AGREE</b> THE TERMS & POLICIES WICH INCLUDE <br>
+                  <small>Please read the terms & policies before the registration</small>
+                </h3>
+                <br><br>
+                <div class="col-sm-12" style="padding-bottom: 10px">
+                  <style>
+                    .form-control-new{display:block;width:100%;padding:.5rem .75rem;font-size:1rem;line-height:1.25;color:#464a4c;background-color:#fff;background-image:none;-webkit-background-clip:padding-box;background-clip:padding-box;border:1px solid rgba(0,0,0,.15);border-radius:.25rem;-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s}
+                  </style>
+                  <iframe class="form-control-new" width="200" height="500" scrolling="yes">sdjhfshjdgfhjdgfjhwgdehjfgdhjfghjsdff
+                  </iframe>
+                </div>
+
+
+
+                <div class="col-sm-12">
+                  <div class="pull-right">
+                    <a [routerLink]="['/user-profile']" class='btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round'>Register</a>
+
+                  </div>
+
+                  <div class="pull-left">
+                    <a [routerLink]="['/regpropertyadmin']" class="btn btn-success btn-fill btn-wd btn-sm btn-block btn-round">Previous</a>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+
+
+
+
+              </div>
+            </form>
+          </div>
+        </div> <!-- wizard container -->
+      </div>
+    </div><!-- end row -->
+  </div> <!--  big container -->
+
+  <div class="footer register-footer text-center">
+    <h6>&copy;{{test | date: 'yyyy'}},made with <i class="fa fa-heart heart"></i> by "Provacy" Solutions</h6>
+  </div>
+
+</div>
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="assets/js/gsdk-bootstrap-wizard.js"></script>
+
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="assets/js/jquery.validate.min.js"></script>
+
+</html>
+
