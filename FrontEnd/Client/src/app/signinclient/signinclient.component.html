@@ -55,18 +55,18 @@
 
                 <div class="col-sm-6 ">
                   <label class="">Full Name</label>
-                  <input type="text" class="form-control " placeholder="Full Name">
+                  <input type="text" class="form-control " placeholder="Full Name" name="name" id="txtName">
                 </div>
 
                 <div class="col-sm-6">
                   <label class="">Email</label>
-                  <input type="text" class="form-control " placeholder="Email">
+                  <input type="text" class="form-control " placeholder="Email" name="email" id="txtEmail">
                 </div>
 
 
                 <div class="col-sm-6">
                 <label class="">Nationality</label>
-                  <select name="nationality" class="form-control">
+                  <select name="nationality" class="form-control" id="cmbNationality">
                     <option value="">-- select one --</option>
                     <option value="afghan">Afghan</option>
                     <option value="albanian">Albanian</option>
@@ -266,24 +266,25 @@
 
                 <div class="col-sm-6">
                   <label class="">Contact</label>
-                  <input type="text" class="form-control " placeholder="Contact">
+                  <input type="text" class="form-control " placeholder="Contact" name="contact" id="txtContact">
                 </div>
 
                 <div class="col-sm-6">
                   <label class="">Password</label>
-                  <input type="password" class="form-control " placeholder="Password">
+                  <input type="password" class="form-control " placeholder="Password" name="password" id="txtPassword">
                   <label class="col-sm-9 text-center pass ">Password must be at least 6 characters & one digit.</label>
                 </div>
 
                 <div class="col-sm-6">
                   <label class="">Confirm Password</label>
-                  <input type="text" class="form-control " placeholder="Confirm Password">
+                  <input type="text" class="form-control " placeholder="Confirm Password" name="confirm_password">
                 </div>
 
 
                 <div class="col-sm-12 "style="padding-top: 20px">
                   <div class="pull-right">
-                    <a [routerLink]="['']" class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Register</a>
+                    <!--<a [routerLink]="['']" class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round" (click)="registerCustomer()">Register</a>-->
+                    <button (click)="registerCustomer()" class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Register</button>
 
 
 

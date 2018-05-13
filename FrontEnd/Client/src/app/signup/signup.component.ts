@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SignupService} from '../signup.service';
 
 @Component({
     selector: 'app-signup',
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-    test : Date = new Date();
 
-    constructor() { }
+    posts: any[];
+
+    constructor(private service: SignupService) {
+        this.service.getEmail().subscribe(response => {
+            this.posts = response.json();
+        });
+    }
 
     ngOnInit() {}
 }
