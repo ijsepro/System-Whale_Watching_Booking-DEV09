@@ -34,9 +34,9 @@
                 <div class="wizard-container">
 
                     <div class="card wizard-card" data-color="orange" id="wizardProfile1" >
-                        <form class="new-form">
-                            <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
 
+                        <form class="new-form" [formGroup]='form' (ngSubmit)='next()'>
+                            <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
                             <div class="wizard-header ">
                                 <h3 class="title">
                                     <b>CREATE</b> YOUR PROFILE <br>
@@ -46,67 +46,135 @@
 
                                 <div class="picture-container">
                                     <div class="picture" style="height: 150px;width: 150px">
-                                        <h6>Choose <br>Picture</h6>
-                                        <img src="assets/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title=""/>
-                                        <input type="file" id="wizard-picture">
-                                    </div>
+                                        <!-- old -->
+                                        <!-- <h6>Choose <br>Picture</h6> -->
+                                        <!-- <img src="../assets/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title=""/> -->
+                                        <!-- <input type="file" id="wizard-picture"> -->
+                                        <!-- old -->
 
+                                        <!-- update -->
+                                            <img [src]="image_url" class="picture-src" id="wizardPicturePreview"/>
+                                            <input type="file" id="wizard-picture" (change)="fileuploaderOnChange($event)" accept="image/*" />  <!-- , image/jpeg, image/jpg -->
+                                        <!-- update -->
+
+                                    </div>
                                 </div>
+
+                                <!-- update  -->
+                                <div class="picture-container">
+                                    <div class="">
+                                        <!-- <div *ngIf="form.errors" class="alert alert-danger">Form Error-errors</div> -->
+                                        <div *ngIf="property_owner_name.touched && property_owner_name.invalid" class="alert alert-danger">Name Error</div>
+                                        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">Invalide E-mail</div>
+                                        <div *ngIf="username.touched && username.invalid">
+                                            <div *ngIf="username.errors.pattern" class="alert alert-danger">Username Pattern Error</div>
+                                            <div *ngIf="username.errors.shouldBeUnique" class="alert alert-danger">Username has already taken</div>
+                                        </div>
+                                        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">Invalid Password</div>
+                                        <!-- <div *ngIf="password.value != conform_password.value && conform_password.value != null">Password does not match</div> -->
+                                    </div>
+                                </div>
+                                <!-- update  -->
 
                                 <div class="col-sm-6 ">
-                                    <label class="">Owner Name</label>
-                                    <input type="text" class="form-control " placeholder="Owner Name">
-                                </div>
+                                    <label class="">Owner Name <span style="color:red">*</span></label>
+                                    <input
+                                        formControlName='property_owner_name'
+                                        type="text" class="form-control " placeholder="Owner Name"> <!-- update -->
+                                    </div>
 
-                                <div class="col-sm-6">
-                                    <label class="">Street</label>
-                                    <input type="text" class="form-control " placeholder="Street">
+                                    <div class="col-sm-6">
+                                        <label class="">Street</label>
+                                    <input
+                                        formControlName='address_street_and_num'
+                                        type="text" class="form-control " placeholder="Street"> <!-- update -->
                                 </div>
 
                                 <div class="col-sm-6">
                                     <label class="">City</label>
-                                    <input type="text" class="form-control " placeholder="City">
-                                </div>
+                                    <input
+                                        formControlName='address_city'
+                                        type="text" class="form-control " placeholder="City"> <!-- update -->
+                                    </div>
 
                                 <div class="col-sm-6">
                                     <label class="">Country</label>
-                                    <input type="text" class="form-control " placeholder="Country">
+                                    <input
+                                        formControlName='address_country'
+                                        type="text" class="form-control " placeholder="Country"> <!-- update -->
                                 </div>
 
                                 <div class="col-sm-6">
                                     <label class="">Poastal Code</label>
-                                    <input type="text" class="form-control " placeholder="Poastal Code">
+                                    <input
+                                        formControlName='address_postal_code'
+                                        type="text" class="form-control " placeholder="Poastal Code"> <!-- update -->
                                 </div>
 
-                                <div class="col-sm-6">
+                                <!-- update -->
+                                <!-- <div class="col-sm-6">
                                     <label class="">Fax</label>
                                     <input type="text" class="form-control " placeholder="Fax">
-                                </div>
-
+                                </div> -->
+                                <!-- update -->
+                                
                                 <div class="col-sm-6">
-                                    <label class="">Email</label>
-                                    <input type="text" class="form-control " placeholder="Email">
-                                </div>
-
-                                <div class="col-sm-6">
+                                    <label class="">Email<span style="color:red">*</span></label>
+                                    <input
+                                        formControlName='email'
+                                        type="text" class="form-control " placeholder="Email"> <!-- update -->
+                                    </div>
+                                    
+                                <!-- update -->
+                                <!-- <div class="col-sm-6">
                                     <label class="">Registred Date</label>
                                     <input type="text" class="form-control " placeholder=" ">
-                                </div>
+                                </div> -->
+                                <!-- new -->
 
-                                <div class="col-sm-6 mr-auto ml-auto">
-                                    <label class="">Password</label>
-                                    <input type="password" class="form-control " placeholder="Password">
-                                    <label class="col-sm-9 text-center pass ">Password must be at least 6 characters & one digit.</label>
-                                </div>
-
+                                <!-- new  -->
                                 <div class="col-sm-6">
-                                    <label class="">Confirm Password</label>
-                                    <input type="password" class="form-control " placeholder="Confirm Password">
+                                    <label class="">UserName<span style="color:red">*</span></label>
+                                    <input
+                                        formControlName='username'
+                                        type="text" class="form-control " placeholder="UserName"> 
                                 </div>
+                                <!-- new  -->
 
+                                <!-- update -->
+                                <div formGroupName='passwords'>
+                                    <div class="col-sm-6 mr-auto ml-auto">
+                                        <label class="">Password<span style="color:red">*</span></label>
+                                        <input
+                                            formControlName='password'
+                                            type="password" class="form-control " placeholder="Password">
+                                        
+                                        <label class="col-sm-9 text-center pass ">Password must be Minimum six characters, at least one letter, one number and one special character</label>
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                        <label class="">Confirm Password</label>
+                                        <input
+                                            formControlName='conform_password'
+                                            type="password" class="form-control " placeholder="Confirm Password"> <!-- update -->
+                                    </div>
+                                </div> 
+                                <!-- update -->
+                                
                                 <div class="col-sm-6 ">
                                     <div class="pull-right">
-                                        <a [routerLink]="['/termspolicies']" class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Next</a>
+                                        <!-- old -->
+                                        <!-- <a [routerLink]="['/termspolicies']" class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Next</a> -->
+                                        <!-- old -->
+                                        <!-- updated -->
+
+                                        <!-- <button  *ngIf = "!pending" class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Next</button> -->
+                                        <!-- <button  *ngIf = "pending" class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Pending...</button> -->
+                                        <button 
+                                            [disabled]='form.invalid || !property_owner_name.touched || !email.touched || !username.touched || !password.touched' 
+                                            class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Next</button>
+
+                                        <!-- updated -->
 
                                     </div>
                                     <div class="clearfix"></div>
@@ -139,3 +207,6 @@
 <script src="assets/js/jquery.validate.min.js"></script>
 
 </html>
+
+
+
