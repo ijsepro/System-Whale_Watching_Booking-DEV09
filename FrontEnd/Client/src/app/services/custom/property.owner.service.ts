@@ -27,5 +27,14 @@ export class PropertyOwnerService {
     delete_Property_Owner(params : HttpParams){
         return this.url_service.delete('delete_Property_Owner', {params : params});
     }
+    check_Property_Owner_Data_Unique(params : HttpParams){
+        return this.url_service.check_username_unique('check_Property_Owner_Username_Unique', {params : params});
+    }
+    check_Property_Owner_Email_IfExists(params : HttpParams){
+        return this.url_service.check_username_unique('check_Property_Owner_Email_IfExists', {params : params});
+    }
+    check_Property_Owner_username_email(params : HttpParams){
+        return this.url_service.check_username_unique('check_Property_Owner_username_email', {params : params});
+    }
 
 }

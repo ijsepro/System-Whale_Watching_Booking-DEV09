@@ -34,13 +34,19 @@ export class DatabaseService {
         .map(responce => responce)
         .catch(this.handleError);
     }
-    
+      
     public delete (function_url : string, options?: {headers?: HttpHeaders;observe?: 'body';params?: HttpParams;reportProgress?: boolean;responseType?: 'json';withCredentials?: boolean;}) {
       return this.http.delete (this.base_class_url + function_url, options)
+      .map(responce => responce)
+      .catch(this.handleError);
+    }
+      
+    public check_username_unique (function_url : string, options?: {headers?: HttpHeaders; observe?: 'body'; params?: HttpParams; reportProgress?: boolean; responseType?: 'json'; withCredentials?: boolean;}) {
+      return this.http.get (this.base_class_url + function_url, options)
         .map(responce => responce)
         .catch(this.handleError);
     }
-  
+
     private handleError(error : Response) {
       if(error.status === 400)
         return Observable.throw(new BadInput(error.json()));

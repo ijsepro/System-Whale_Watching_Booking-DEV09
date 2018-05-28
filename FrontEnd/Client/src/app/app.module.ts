@@ -22,8 +22,12 @@ import { ForgetpassComponent } from './forgetpass/forgetpass.component';
 import { BoatregComponent } from './boatreg/boatreg.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppErrorHandler } from './common/app-error-handler';
-import { DatePipe } from '@angular/common';
+import { DatePipe, CommonModule } from '@angular/common';
 import { PropertyOwnerService } from './services/custom/property.owner.service';
+import { UsernameValidators } from './common/validators/username.validators';
+import { SharedDataService } from './services/data-service/shared-data.service';
+import { ClientService } from './services/custom/client.service';
+import { CommonValidators } from './common/validators/common.validators';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,11 @@ import { PropertyOwnerService } from './services/custom/property.owner.service';
   ],
   providers: [
     PropertyOwnerService,
+    ClientService,
     DatePipe,
+    UsernameValidators,
+    CommonValidators,
+    SharedDataService,
     {provide : ErrorHandler, useClass : AppErrorHandler}
   ],
   bootstrap: [AppComponent]

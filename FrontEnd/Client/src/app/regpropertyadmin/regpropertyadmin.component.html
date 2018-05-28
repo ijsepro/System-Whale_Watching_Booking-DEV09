@@ -35,7 +35,8 @@
 
                     <div class="card wizard-card" data-color="orange" id="wizardProfile1" >
 
-                        <form class="new-form" [formGroup]='form' (ngSubmit)='next()'>
+                        <!-- <form class="new-form" [formGroup]='form' (ngSubmit)='next()'> -->
+                        <form class="new-form" [formGroup]='form'>
                             <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
                             <div class="wizard-header ">
                                 <h3 class="title">
@@ -60,22 +61,31 @@
                                     </div>
                                 </div>
 
-                                <!-- update  -->
+                                <!-- new -->
                                 <div class="picture-container">
                                     <div class="">
-                                        <!-- <div *ngIf="form.errors" class="alert alert-danger">Form Error-errors</div> -->
-                                        <div *ngIf="property_owner_name.touched && property_owner_name.invalid" class="alert alert-danger">Name Error</div>
-                                        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">Invalide E-mail</div>
+                                        <div *ngIf="property_owner_name.touched && property_owner_name.invalid">
+                                            <div *ngIf="property_owner_name.errors.pattern" class="alert alert-danger">Name can't be one charactor, can't contain special charactors or _ or -</div>
+                                            <div *ngIf="property_owner_name.errors.cannotBeNull" class="alert alert-danger">Name can't be null</div>
+                                        </div>
+                                        <div *ngIf="email.touched && email.invalid">
+                                            <div *ngIf="email.errors.cannotBeNull" class="alert alert-danger">E-mail Can't be null</div>
+                                            <div *ngIf="!email.errors.cannotBeNull && email.errors.email" class="alert alert-danger">Invalide E-mail</div>
+                                        </div>
                                         <div *ngIf="username.touched && username.invalid">
-                                            <div *ngIf="username.errors.pattern" class="alert alert-danger">Username Pattern Error</div>
+                                            <div *ngIf="username.errors.pattern" class="alert alert-danger">first must be charactor, 6 <= >= 15 , others will be charactors | integer and cannot contain space or special charactors</div>
+                                            <div *ngIf="username.errors.cannotBeNull" class="alert alert-danger">Username can't be null</div>
                                             <div *ngIf="username.errors.shouldBeUnique" class="alert alert-danger">Username has already taken</div>
                                         </div>
-                                        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">Invalid Password</div>
+                                        <div *ngIf="password.touched && password.invalid">
+                                            <div *ngIf="password.errors.pattern" class="alert alert-danger">Password must be Minimum six characters, at least one letter, one number and one special character</div>
+                                            <div *ngIf="password.errors.cannotBeNull" class="alert alert-danger">Password can't be null</div>
+                                        </div>
                                         <!-- <div *ngIf="password.value != conform_password.value && conform_password.value != null">Password does not match</div> -->
                                     </div>
                                 </div>
-                                <!-- update  -->
-
+                                <!-- new -->
+                                
                                 <div class="col-sm-6 ">
                                     <label class="">Owner Name <span style="color:red">*</span></label>
                                     <input
@@ -149,7 +159,7 @@
                                             formControlName='password'
                                             type="password" class="form-control " placeholder="Password">
                                         
-                                        <label class="col-sm-9 text-center pass ">Password must be Minimum six characters, at least one letter, one number and one special character</label>
+                                        <!-- <label class="col-sm-9 text-center pass ">Password must be Minimum six characters, at least one letter, one number and one special character</label> -->
                                     </div>
                                     
                                     <div class="col-sm-6">
@@ -166,15 +176,13 @@
                                         <!-- old -->
                                         <!-- <a [routerLink]="['/termspolicies']" class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Next</a> -->
                                         <!-- old -->
-                                        <!-- updated -->
 
-                                        <!-- <button  *ngIf = "!pending" class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Next</button> -->
-                                        <!-- <button  *ngIf = "pending" class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Pending...</button> -->
+                                        <!-- new -->
                                         <button 
+                                            (click)="next()"
                                             [disabled]='form.invalid || !property_owner_name.touched || !email.touched || !username.touched || !password.touched' 
                                             class="btn btn-danger btn-fill btn-warning btn-wd btn-sm btn-block btn-round">Next</button>
-
-                                        <!-- updated -->
+                                        <!-- new -->
 
                                     </div>
                                     <div class="clearfix"></div>

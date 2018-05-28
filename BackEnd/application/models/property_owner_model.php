@@ -24,4 +24,8 @@ class Property_Owner_Model extends CI_Model{
         return $this->db->affected_rows();
     }
 
+    public function find_count($where) {
+       return $this->db->select('count(*)')->from('Property_Owner')->where($where)->get()->result_array();
+    }
+
 }

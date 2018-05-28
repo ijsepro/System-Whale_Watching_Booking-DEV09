@@ -46,4 +46,23 @@ class Property_Owner extends CI_Controller {
         // print_r($_GET);
     }
 
+    public function check_Property_Owner_Username_Unique() {
+        echo $this->property_owner_model->find_count($_GET)[0]['count(*)'] > 0 ? false : true;
+        die();
+    }
+
+    public function check_Property_Owner_Email_IfExists(){
+        // echo $this->property_owner_model->find_count($_GET)[0]['count(*)'] > 0 ? false : true;
+        echo $this->property_owner_model->search($_GET) != null ? true : false;        
+        die();
+    }
+
+    public function check_Property_Owner_username_email(){
+        // echo "test pass";
+        // print_r($_GET);
+        echo $this->property_owner_model->search($_GET) != null ? true : false;
+        // echo $this->property_owner_model->search($_GET) ;
+        die();
+    }
+
 }
