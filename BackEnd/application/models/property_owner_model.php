@@ -7,7 +7,8 @@ class Property_Owner_Model extends CI_Model{
     } 
     
     public function insert ($data) {
-        return $this->db->insert('Property_Owner', $data);
+        $this->db->insert('Property_Owner', $data);
+        return $this->db->insert_id();
     }
     
     public function search($where) {
@@ -22,6 +23,10 @@ class Property_Owner_Model extends CI_Model{
     public function delete($where) {
         $this->db->delete('Property_Owner', $where);
         return $this->db->affected_rows();
+    }
+
+    public function find_what_and_where($what, $where){
+        return $this->db->select($what)->get_where('Property_Owner', $where)->result_array();
     }
 
 }

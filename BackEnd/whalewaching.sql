@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS WhaleWaching;
-CREATE DATABASE WhaleWaching;
-USE WhaleWaching;
+DROP DATABASE IF EXISTS WhaleWatching;
+CREATE DATABASE WhaleWatching;
+USE WhaleWatching;
 
 CREATE TABLE Property_Owner(
 	property_owner_id INT AUTO_INCREMENT,
@@ -16,10 +16,6 @@ CREATE TABLE Property_Owner(
 	password VARCHAR(50),
 	CONSTRAINT PRIMARY KEY(property_owner_id)
 );
-
--- insert into Property_Owner values (0, 'property_owner_name1', 'address_postal_code1', 'address_street_and_num1', 'address_city1', 'address_country1', 'email1', '2017.1.1', 'profile_picture1', 'username1', 'password1');
--- insert into Property_Owner values (0, 'property_owner_name2', 'address_postal_code2', 'address_street_and_num2', 'address_city2', 'address_country2', 'email2', '2017.1.2', 'profile_picture2', 'username2', 'password2');
--- insert into Property_Owner values (0, 'property_owner_name3', 'address_postal_code3', 'address_street_and_num3', 'address_city3', 'address_country3', 'email3', '2017.1.3', 'profile_picture3', 'username3', 'password3');
 
 CREATE TABLE Contac_Person_For_Payment_Details(
 	contac_person_for_payment_detail_id int PRIMARY KEY AUTO_INCREMENT,
@@ -74,7 +70,9 @@ CREATE TABLE Property(
 	property_id int PRIMARY KEY AUTO_INCREMENT,
 	property_name VARCHAR(255),
 	seat_count int,
-	description VARCHAR(255),
+	description VARCHAR(1000),
+	special_description VARCHAR(500),
+	registerd_date DATETIME,
 	property_owner_id INT,
 	CONSTRAINT FOREIGN KEY (property_owner_id) REFERENCES Property_Owner (property_owner_id)
 );

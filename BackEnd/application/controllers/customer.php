@@ -57,8 +57,17 @@ class Customer extends CI_Controller{
 
 		$this->output->set_output(json_encode(['result' => 0 ]));
 
+	}
 
-
+	public function insert_customer(){
+		print_r($_POST);
+		// if($this->customer_model->insert($_POST)){
+		// 	echo true;
+		// 	die();
+		// } else {
+		// 	echo false;
+		// 	die();
+		// }
 	}
 //17.mp4 click event 3.59
 	public function register(){

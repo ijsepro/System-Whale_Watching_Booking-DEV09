@@ -23,7 +23,15 @@ import { BoatregComponent } from './boatreg/boatreg.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppErrorHandler } from './common/app-error-handler';
 import { DatePipe } from '@angular/common';
-import { PropertyOwnerService } from './services/custom/property.owner.service';
+import { PropertyOwnerService } from './services/custom-service/property-owner.service';
+import { PropertyService } from './services/custom-service/property.service';
+import { CustomerService } from './services/custom-service/customer.service';
+import { UsernameValidators } from './common/validators/username.validators';
+import { CommonValidators } from './common/validators/common.validators';
+import { EmailValidators } from './common/validators/email.validators';
+import { AuthService } from './services/auther-service/auth.service';
+import { AuthGuard } from './services/auther-service/auth-guard.service';
+import { AuthAdminGuard } from './services/auther-service/auth-admin-guard.service';
 
 @NgModule({
   declarations: [
@@ -51,9 +59,21 @@ import { PropertyOwnerService } from './services/custom/property.owner.service';
     ReactiveFormsModule
   ],
   providers: [
-    PropertyOwnerService,
     DatePipe,
-    {provide : ErrorHandler, useClass : AppErrorHandler}
+    // database services
+    PropertyOwnerService,
+    PropertyService,
+    CustomerService,
+    // validators
+    UsernameValidators,
+    CommonValidators,
+    EmailValidators,
+    // error handler
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    // auther
+    AuthService,
+    AuthGuard,
+    AuthAdminGuard
   ],
   bootstrap: [AppComponent]
 })

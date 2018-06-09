@@ -6,28 +6,39 @@
         <div class="container">
             <div class="owner">
                 <div class="avatar">
-                    <img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+
+                    <!-- <img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"> -->
+                    <img [src]="profile_picture" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+
                 </div>
                 <div class="name">
-                    <h4 class="title">Jane Faker<br /></h4>
+
+                    <!-- <h4 class="title">Jane Faker<br /></h4> -->
+                    <h4 (click)='logOut()' class="title">{{ property_owner_name }}
+                        <br />
+                    </h4>
+
                     <small>| admin profile |</small>
                     <h6 class="description">Property Owner</h6>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto text-center">
-                    <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                    <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick
+                        Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with
+                        a solid groove structure. </p>
                     <br />
-                    <button class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</button>
+                    <button class="btn btn-outline-default btn-round">
+                        <i class="fa fa-cog"></i> Settings</button>
                 </div>
             </div>
             <br/>
             <div class="nav-tabs-navigation">
                 <div class="nav-tabs-wrapper">
                     <ngb-tabset [justify]="'center'">
-      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         <ngb-tab title="Follows">
-                            <ng-template ngbTabContent >
+                            <ng-template ngbTabContent>
                                 <div class="row following" id="follows">
                                     <div class="col-md-6 ml-auto mr-auto">
                                         <ul class="list-unstyled follows">
@@ -37,14 +48,17 @@
                                                         <img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                                     </div>
                                                     <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Flume<br/><small>Musical Producer</small></h6>
+                                                        <h6>Flume
+                                                            <br/>
+                                                            <small>Musical Producer</small>
+                                                        </h6>
                                                     </div>
                                                     <div class="col-md-3 col-sm-2 ml-auto mr-auto">
                                                         <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="" checked="">
+                                                                <span class="form-check-sign"></span>
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -56,14 +70,17 @@
                                                         <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                                     </div>
                                                     <div class="col-md-7 col-sm-4 ml-auto">
-                                                        <h6>Banks<br /><small>Singer</small></h6>
+                                                        <h6>Banks
+                                                            <br />
+                                                            <small>Singer</small>
+                                                        </h6>
                                                     </div>
                                                     <div class="col-md-3 col-sm-2 ml-auto mr-auto">
                                                         <div class="form-check">
-                                                          <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked="">
-                                                            <span class="form-check-sign"></span>
-                                                          </label>
+                                                            <label class="form-check-label">
+                                                                <input class="form-check-input" type="checkbox" value="" checked="">
+                                                                <span class="form-check-sign"></span>
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -73,7 +90,7 @@
                                 </div>
                             </ng-template>
                         </ngb-tab>
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                         <ngb-tab title="Following">
                             <ng-template ngbTabContent>
@@ -83,87 +100,102 @@
                             </ng-template>
                         </ngb-tab>
 
-//////////////////////////////////////////// Boat-Registration////////////////////////////////////////////////////////////////////
+                        //////////////////////////////////////////// Boat-Registration////////////////////////////////////////////////////////////////////
                         <ngb-tab title="Register New Boat">
                             <ng-template ngbTabContent>
 
                                 <div class="main-content">
-                                <div class="container-fluid">
-                                    <div class="row" style="background-color: whitesmoke">
-                                        <div class="col-md-12">
-                                            <div class="card">
-                                                <div class="card-header" data-background-color="red" style="background-color: black;color: white">
-                                                    <h4 class="wizard-header" style="color: white">Register New Boat</h4>
-                                                    <p class="category">Complete the fields.</p>
-                                                </div>
-                                                <div class="card-content">
-                                                    <form>
+                                    <div class="container-fluid">
+                                        <div class="row" style="background-color: whitesmoke">
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header" data-background-color="red" style="background-color: black;color: white">
+                                                        <h4 class="wizard-header" style="color: white">Register New Boat</h4>
+                                                        <p class="category">Complete the fields.</p>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <form [formGroup]='propertyForm'>
 
-                                                        <div class="row">
-                                                            <div class="col-md-11" style="padding-left: 100px;padding-top: 50px">
-                                                                <div class="form-group form-black label-floating is-empty">
-                                                                    <label class="control-label">Name of the boat</label>
-                                                                    <input type="text" class="form-control" >
-                                                                </div>
-                                                                <br><br>
-
-                                                                <div class="form-group form-black label-floating is-empty">
-                                                                    <label class="control-label">Special Properties</label>
-                                                                    <input type="text" class="form-control" >
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <br>
-                                                        <div class="row" >
-                                                            <div class="col-md-4" style="padding-left: 100px">
-                                                                <div class="form-group form-black label-floating is-empty">
-                                                                    <label class="control-label">Seat Count</label>
-                                                                    <input type="text" class="form-control" >
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4"style="padding-left: 50px;padding-right: 50px">
-                                                                <div class="form-group form-black label-floating is-empty">
-                                                                    <label class="control-label">Registered Year</label>
-                                                                    <input type="text" class="form-control" >
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4" style="padding-right: 100px">
-                                                                <div class="form-group form-black label-floating is-empty">
-                                                                    <label class="control-label">...</label>
-                                                                    <input type="text" class="form-control" >
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row" style="padding-left: 100px;padding-top: 50px">
-                                                            <div class="col-md-11">
-                                                                <div class="form-group">
-                                                                    <label>Description</label>
+                                                            <div class="row">
+                                                                <div class="col-md-11" style="padding-left: 100px;padding-top: 50px">
                                                                     <div class="form-group form-black label-floating is-empty">
-                                                                        <label class="control-label"> Please add a description to verification.</label>
-                                                                        <textarea class="form-control" rows="5"></textarea>
+                                                                        <label class="control-label">Name of the boat</label>
+                                                                        <input formControlName='property_name' type="text" class="form-control">
                                                                     </div>
                                                                     <br>
-                                                                    <button type="submit" class="btn btn-danger pull-right" style="right: 50%">Save Details</button><br>
+                                                                    <br>
+
+                                                                    <div class="form-group form-black label-floating is-empty">
+                                                                        <label class="control-label">Special Properties</label>
+                                                                        <input formControlName='special_description' type="text" class="form-control">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                            <br>
+                                                            <div class="row">
+                                                                <div class="col-md-4" style="padding-left: 100px">
+                                                                    <div class="form-group form-black label-floating is-empty">
+                                                                        <label class="control-label">Seat Count</label>
+                                                                        <input formControlName='seat_count' type="text" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4" style="padding-left: 50px;padding-right: 50px">
+                                                                    <div class="form-group form-black label-floating is-empty">
+                                                                        <label class="control-label">Registered Year</label>
+                                                                        <input type="text" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4" style="padding-right: 100px">
+                                                                    <div class="form-group form-black label-floating is-empty">
+                                                                        <label class="control-label">...</label>
+                                                                        <input type="text" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                                                        <div><br></div>
-                                                        <div><br></div>
-                                                        <div class="clearfix"></div>
-                                                    </form>
+                                                            <div class="row" style="padding-left: 100px;padding-top: 50px">
+                                                                <div class="col-md-11">
+                                                                    <div class="form-group">
+                                                                        <label>Description</label>
+                                                                        <div class="form-group form-black label-floating is-empty">
+                                                                            <label class="control-label"> Please add a description to verification.</label>
+                                                                            <textarea formControlName='description' class="form-control" rows="5"></textarea>
+                                                                        </div>
+                                                                        <br>
+                                                                        <button (click)='addProperty()' type="submit" class="btn btn-danger pull-right" style="right: 50%">Save Details</button>
+                                                                        <br>
+                                                                        <input type="file" id="wizard-picture" accept="video/*" />
+                                                                        <br>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- test only -->
+                                                            <!-- <div class="row">
+                                                                        <div class="embed-responsive embed-responsive-1by1">
+                                                                            <iframe class="embed-responsive-item" src="../../assets/file/video/I_Just_Wanted.webm"></iframe>
+                                                                        </div>
+                                                                    </div> -->
+                                                            <!-- test only -->
+
+                                                            <div>
+                                                                <br>
+                                                            </div>
+                                                            <div>
+                                                                <br>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                </div>
 
                             </ng-template>
                         </ngb-tab>
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                         <ngb-tab title="Manage Your Boat">
                             <ng-template ngbTabContent>
@@ -186,57 +218,57 @@
                                                                     <div class="card-content table-responsive">
                                                                         <table class="table table-hover">
                                                                             <thead>
-                                                                            <tr>
-                                                                                <th>Name of boat</th>
-                                                                                <th>Special properties</th>
-                                                                                <th>Seat Count</th>
-                                                                                <th>Registered Year</th>
-                                                                                <th>...</th>
-                                                                            </tr>
+                                                                                <tr>
+                                                                                    <th>Name of boat</th>
+                                                                                    <th>Special properties</th>
+                                                                                    <th>Seat Count</th>
+                                                                                    <th>Registered Year</th>
+                                                                                    <th>...</th>
+                                                                                </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            <tr>
-                                                                                <td>Dakota Boat</td>
-                                                                                <td>dawffwef</td>
-                                                                                <td>06</td>
-                                                                                <td>2018</td>
-                                                                                <td>...</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Dakota Boat</td>
-                                                                                <td>dawffwef</td>
-                                                                                <td>06</td>
-                                                                                <td>2018</td>
-                                                                                <td>...</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Dakota Boat</td>
-                                                                                <td>dawffwef</td>
-                                                                                <td>06</td>
-                                                                                <td>2018</td>
-                                                                                <td>...</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Dakota Boat</td>
-                                                                                <td>dawffwef</td>
-                                                                                <td>06</td>
-                                                                                <td>2018</td>
-                                                                                <td>...</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Dakota Boat</td>
-                                                                                <td>dawffwef</td>
-                                                                                <td>06</td>
-                                                                                <td>2018</td>
-                                                                                <td>...</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Dakota Boat</td>
-                                                                                <td>dawffwef</td>
-                                                                                <td>06</td>
-                                                                                <td>2018</td>
-                                                                                <td>...</td>
-                                                                            </tr>
+                                                                                <tr>
+                                                                                    <td>Dakota Boat</td>
+                                                                                    <td>dawffwef</td>
+                                                                                    <td>06</td>
+                                                                                    <td>2018</td>
+                                                                                    <td>...</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Dakota Boat</td>
+                                                                                    <td>dawffwef</td>
+                                                                                    <td>06</td>
+                                                                                    <td>2018</td>
+                                                                                    <td>...</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Dakota Boat</td>
+                                                                                    <td>dawffwef</td>
+                                                                                    <td>06</td>
+                                                                                    <td>2018</td>
+                                                                                    <td>...</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Dakota Boat</td>
+                                                                                    <td>dawffwef</td>
+                                                                                    <td>06</td>
+                                                                                    <td>2018</td>
+                                                                                    <td>...</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Dakota Boat</td>
+                                                                                    <td>dawffwef</td>
+                                                                                    <td>06</td>
+                                                                                    <td>2018</td>
+                                                                                    <td>...</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Dakota Boat</td>
+                                                                                    <td>dawffwef</td>
+                                                                                    <td>06</td>
+                                                                                    <td>2018</td>
+                                                                                    <td>...</td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -249,45 +281,46 @@
 
                                             <div class="col-md-12">
                                                 <div class="card card-profile">
-                                                    <div class="content" >
+                                                    <div class="content">
                                                         <div class="card-header" data-background-color="red" style="background-color: black;color: white">
                                                             <h4 class="wizard-header" style="color: white">Update Boat Details</h4>
                                                             <p class="category">Click on a table row.</p>
                                                         </div>
 
-                                                        <div >
+                                                        <div>
                                                             <div class="row">
                                                                 <div class="col-md-11" style="padding-left: 100px;padding-top: 50px">
                                                                     <div class="form-group form-black label-floating is-empty">
                                                                         <label class="control-label">Name of the boat</label>
-                                                                        <input type="text" class="form-control" >
+                                                                        <input type="text" class="form-control">
                                                                     </div>
-                                                                    <br><br>
+                                                                    <br>
+                                                                    <br>
 
                                                                     <div class="form-group form-black label-floating is-empty">
                                                                         <label class="control-label">Special Properties</label>
-                                                                        <input type="text" class="form-control" >
+                                                                        <input type="text" class="form-control">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <br>
-                                                            <div class="row" >
+                                                            <div class="row">
                                                                 <div class="col-md-4" style="padding-left: 100px">
                                                                     <div class="form-group form-black label-floating is-empty">
                                                                         <label class="control-label">Seat Count</label>
-                                                                        <input type="text" class="form-control" >
+                                                                        <input type="text" class="form-control">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-4"style="padding-left: 50px;padding-right: 50px">
+                                                                <div class="col-md-4" style="padding-left: 50px;padding-right: 50px">
                                                                     <div class="form-group form-black label-floating is-empty">
                                                                         <label class="control-label">Registered Year</label>
-                                                                        <input type="text" class="form-control" >
+                                                                        <input type="text" class="form-control">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4" style="padding-right: 100px">
                                                                     <div class="form-group form-black label-floating is-empty">
                                                                         <label class="control-label">...</label>
-                                                                        <input type="text" class="form-control" >
+                                                                        <input type="text" class="form-control">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -301,13 +334,18 @@
                                                                             <textarea class="form-control" rows="5"></textarea>
                                                                         </div>
                                                                         <br>
-                                                                        <button type="submit" class="btn btn-danger pull-right" style="right: 50%">Update Details</button><br>
+                                                                        <button type="submit" class="btn btn-danger pull-right" style="right: 50%">Update Details</button>
+                                                                        <br>
                                                                     </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div><br></div>
-                                                            <div><br></div>
+                                                            <div>
+                                                                <br>
+                                                            </div>
+                                                            <div>
+                                                                <br>
+                                                            </div>
                                                             <div class="clearfix"></div>
                                                         </div>
                                                     </div>
@@ -322,7 +360,7 @@
                             </ng-template>
                         </ngb-tab>
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                         <ngb-tab title="Manage Packages">
                             <ng-template ngbTabContent>

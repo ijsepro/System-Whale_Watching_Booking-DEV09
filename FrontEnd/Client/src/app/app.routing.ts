@@ -13,10 +13,12 @@ import {TermspoliciesComponent} from "./termspolicies/termspolicies.component";
 import {SigninclientComponent} from "./signinclient/signinclient.component";
 import {ForgetpassComponent} from "./forgetpass/forgetpass.component";
 import {BoatregComponent} from "./boatreg/boatreg.component";
+import { AuthGuard } from './services/auther-service/auth-guard.service';
+import { AuthAdminGuard } from './services/auther-service/auth-admin-guard.service';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
-    { path: 'user-profile',     component: ProfileComponent },
+    { path: 'profile',          component: ProfileComponent, canActivate: [AuthGuard, AuthAdminGuard] },
     { path: 'signup',           component: SignupComponent },
     { path: 'adminlogin',       component: AdminloginComponent},
     { path: 'termspolicies',    component: TermspoliciesComponent},

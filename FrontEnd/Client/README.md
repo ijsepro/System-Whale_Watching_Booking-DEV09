@@ -40,16 +40,27 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 
-database replace (../backend/whalewaching.sql)
-regpropertyadmin.component.html => username ????? // add new 
-regpropertyadmin.component.html => Registred Date default value // 
-regpropertyadmin.component.html => Poastal Code err ????? // speling ??
-regpropertyadmin.component.html => telephone number  ????? // add new 
 
 
-/////////////////////////////
-property_owner validation
-property_owner validation shouldBeUnique check by serve
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+npm install angular2-jwt --save
+replace database => backend/whalewatching.sql
+replace frontend/client/services/resourses-service/url.service.ts (base_url) => your backend url 
+replace backend/application/config/database.php (password) => your password
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+tutu
+///////////////////////////////////////////////////////////////////////////////////////
+regpropertyadmin.component.html => Poastal Code err ????? // speling harida??
+regpropertyadmin.component.html => telephone number(multiple)  ????? // add karapan
+regpropertyadmin.component.html => country selector  ????? // add karapan
+regpropertyadmin.component.html => prof. picture1 input1 pitatat weda. 
+
+profile.component.html => logout button1 add krapn
+../../assets/img/default-avatar.png kiyana hulle image1 dapan
 
 
 
@@ -87,8 +98,7 @@ email validetor reg
     Abc@example.com                                (English, ASCII)
     Abc.123@example.com                            (English, ASCII)
     user+mailbox/department=shipping@example.com   (English, ASCII)
-    !#$%&'*+-/=?^_`.{|}~@example.com               (English, ASCII)
-    "Abc@def"@example.com                          (English, ASCII)
+    !#$%&'*+-/=?^_`.{|}~@example.com               (English, ASCII    "Abc@def"@example.com                          (English, ASCII)
     "Fred Bloggs"@example.com                      (English, ASCII)
     "Joe.\\Blow"@example.com                       (English, ASCII)
 
@@ -101,19 +111,6 @@ email validetor reg
 
 ////////////////////////////////////
 name validate regex
-
-
-///////////////////////////////////
-username
-
-1
-^[a-zA-Z0-9.\-_$@*!]{3,30}$
-
-2
-^[-\w\.\$@\*\!]{1,30}$
-
-3*
-^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$
 
 ----- test example ------
 A                                   : false // currnt true  

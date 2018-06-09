@@ -49,4 +49,9 @@ class Customer_model extends CI_Model{
 //
 //	}
 
+// reshan pubudu temp. update 
+	public function insert ($data) {
+		return $this->db->insert('Customer', $data);
+	}
+
 }

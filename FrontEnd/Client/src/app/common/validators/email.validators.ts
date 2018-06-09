@@ -1,26 +1,20 @@
-import { AbstractControl, ValidationErrors } from "@angular/forms";
-import { PropertyOwnerService } from "../../services/custom-service/property-owner.service";
-import { HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { PropertyOwnerService } from "../../services/custom-service/property-owner.service";
+import { AbstractControl, ValidationErrors } from "@angular/forms";
+import { HttpParams } from "@angular/common/http";
 
 @Injectable()
-export class UsernameValidators {
+export class EmailValidators {
     
     timer : any;
 
     constructor(private propertyownerservice : PropertyOwnerService){}
 
-    static cannotContainSpace(control : AbstractControl) : ValidationErrors | null {
-        if((control.value as string).indexOf(' ') >= 0)
-            return {cannotContainSpace : true};
-        return null;
-    }
-
     shouldBeUnique(control : AbstractControl) : Promise<ValidationErrors | null> {
         clearTimeout(this.timer);
         return new Promise((resolve, reject) => {
             this.timer = setTimeout(() => {
-                this.propertyownerservice.check_Property_Owner_If_Exists(new HttpParams().set('username', control.value))
+                this.propertyownerservice.check_Property_Owner_If_Exists(new HttpParams().set('email', control.value))
                     .subscribe(response => {
                         if(response)
                             resolve ({shouldBeUnique : true});
